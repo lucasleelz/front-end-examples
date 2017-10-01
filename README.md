@@ -20,3 +20,13 @@ body span
 兄弟选择器 `~`
 
 相邻兄弟选择器 `+`
+
+## 布局方向
+行内布局，水平布局
+```css
+display: inline-block;
+```
+块布局，垂直布局
+```css
+display: block;
+```

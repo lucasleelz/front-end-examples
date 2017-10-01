@@ -32,11 +32,20 @@ a {
 
 .thumbnail-list {
   list-style: none;
-  padding: 0
+  padding: 0;
+
+  white-space: nowrap; /* 声明禁止换行 */
+  overflow-x: auto;
+}
+
+/* 隐藏滚动条 */
+.thumbnail-list::-webkit-scrollbar {
+    display: none;
 }
 
 .thumbnail-item {
-  display: block;
+  display: inline-block;
+  width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8); /* 提供回退机制，有些浏览器不支持rgbda。 */
 }
@@ -55,4 +64,8 @@ a {
   color: rgb(202, 238, 255);
 
   font-size: 18px
+}
+
+.detail-image {
+  width: 90%
 }

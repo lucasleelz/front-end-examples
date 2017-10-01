@@ -85,12 +85,13 @@ a {
 .thumbnail-list {
   flex: 0 1 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
   padding: 0;
   white-space: nowrap;
   /* 声明禁止换行 */
   overflow-x: auto;
+  order: 2; /* 调整源顺序，先加载大图。 */
 }
 
 /* 隐藏滚动条 */
@@ -120,4 +121,25 @@ a {
   background: rgb(96, 125, 139);
   color: rgb(202, 238, 255);
   font-size: 18px
+}
+
+@media all and (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .thumbnail-list {
+    flex-direction: column;
+    margin-left: 20px;
+    order: 0; /* 默认顺序，即还原源顺序 */
+  }
+
+  .thumbnail-item {
+    max-width: 260px;
+  }
+
+  .thumbnail-item + .thumbnail-item {
+    margin-top: 20px;
+  }
 }

@@ -30,3 +30,18 @@ display: inline-block;
 ```css
 display: block;
 ```
+
+## flex
+分别对应flex-grow、flex-shrink、flex-basis。
+```css
+flex: 0 1 auto;
+// 相当于
+flex-grow: 0 // 是否拉伸
+flex-shrink: 1 // 是否压缩
+flex-basis auto // 长度。
+
+flex: 0 1 auto; // 相当于无须进行拉伸，如果可能压缩，自动计算大小。
+flex: auto === flex: 1 1 auto
+flex: none === flex: 0 0 auto
+```
+

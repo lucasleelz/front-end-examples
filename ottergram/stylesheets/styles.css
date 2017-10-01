@@ -1,0 +1,46 @@
+body {
+  font-size: 10px;
+  background: rgb(149, 194, 215);
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo-text {
+  background: white;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 37px;
+}
+.thumbnail-item + .thumbnail-item {
+  margin-top: 10px;
+}
+
+.thumbnail-list {
+  list-style: none;
+  padding: 0
+}
+
+.thumbnail-item {
+  display: block;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8); /* 提供回退机制，有些浏览器不支持rgbda。 */
+}
+
+.thumbnail-image {
+  display: block;
+  width: 100%
+}
+
+.thumbnail-title {
+  display: block;
+  margin: 0;
+  padding: 4px 10px;
+
+  background: rgb(96, 125, 139);
+  color: rgb(202, 238, 255);
+
+  font-size: 18px
+}

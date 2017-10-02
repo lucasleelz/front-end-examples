@@ -1,11 +1,6 @@
 # front-end-examples
 front-end
 
-## 代码格式化
-使用Atom beautify
-```
-control+option+b
-```
 ## 制作favicon.icn
 
 ## 关系选择器
@@ -47,6 +42,10 @@ flex: none === flex: 0 0 auto
 
 
 ## ATOM 快捷键
+代码格式化（使用Atom beautify）。
+```
+control+option+b
+```
 切换左侧菜单。
 ```
 command + \
@@ -56,4 +55,15 @@ command + \
 ```
 control + 单击 某个文件夹
 两个手指同时点击 某个文件夹
+```
+切管git管理。
+```
+control + shift + 9  
+```
+
+## git的使用
+
+重写刚刚的提交使用amend，也就是说改变最近的一次提交
+```
+git commit --amend
 ```

@@ -35,6 +35,7 @@ function addThumbClickHandler(thumbnail) {
   thumbnail.addEventListener('click', function(event) {
     event.preventDefault();
     setDetailsFromThumb(thumbnail);
+    showDetails();
   })
 }
 
@@ -47,6 +48,11 @@ function getThumbnails() {
 function hideDetails() {
   'use strict';
   document.body.classList.add(HIDDEN_DETAIL_CLASS);
+}
+
+function showDetails() {
+  'use strict';
+  document.body.classList.remove(HIDDEN_DETAIL_CLASS);
 }
 
 function addKeyPressHandler() {

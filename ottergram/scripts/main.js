@@ -22,3 +22,8 @@ function titleFromThumb(thumbnail) {
   'use strict';
   return thumbnail.getAttribute(THUMBNAIL_TITLE);
 }
+
+function setDetailsFromThumb(thumbnail) {
+  'use strict';
+  setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail));
+}

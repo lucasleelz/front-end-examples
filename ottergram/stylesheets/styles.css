@@ -57,6 +57,13 @@ a {
 .detail-image-frame {
   position: relative;
   text-align: center;
+
+  transition: transform 333ms;
+}
+
+.is-tiny {
+  transform: scale(0.001);
+  transition: transform 0ms;
 }
 
 .detail-image {
@@ -124,7 +131,7 @@ a {
 
 .thumbnail-item:hover {
   transform: scale(1.2);
-  transition: transform 133ms
+  transition: transform 133ms ease-in-out;
 }
 
 .thumbnail-image {

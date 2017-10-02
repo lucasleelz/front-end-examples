@@ -9,7 +9,7 @@ function setDetails(imageUrl, titleText) {
   var detailImage = document.querySelector(DEFAULT_IMAGE_SELECTOR);
   detailImage.setAttribute("src", imageUrl);
 
-  var detailTitle= document.querySelector(DEFAULT_TITLE_SELECTOR);
+  var detailTitle = document.querySelector(DEFAULT_TITLE_SELECTOR);
   detailTitle.textContent = titleText;
 }
 
@@ -27,3 +27,25 @@ function setDetailsFromThumb(thumbnail) {
   'use strict';
   setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail));
 }
+
+function addThumbClickHandler(thumbnail) {
+  'use strict';
+  thumbnail.addEventListener('click', function(event) {
+    event.preventDefault();
+    setDetailsFromThumb(thumbnail);
+  })
+}
+
+function getThumbnails() {
+  'use strict';
+  var thumbnials = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+  return [].slice.call(thumbnials);
+}
+
+function initializeEvents() {
+  'use strict';
+  var thumbnials = getThumbnails();
+  thumbnials.forEach(addThumbClickHandler);
+}
+
+initializeEvents();

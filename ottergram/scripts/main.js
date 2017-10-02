@@ -3,6 +3,8 @@ var DEFAULT_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 var THUMBNAIL_URL = 'data-image-url';
 var THUMBNAIL_TITLE = 'data-image-title';
+var HIDDEN_DETAIL_CLASS = 'hidden-detail';
+var ESC_KEY = 27;
 
 function setDetails(imageUrl, titleText) {
   'use strict';
@@ -42,10 +44,26 @@ function getThumbnails() {
   return [].slice.call(thumbnials);
 }
 
+function hideDetails() {
+  'use strict';
+  document.body.classList.add(HIDDEN_DETAIL_CLASS);
+}
+
+function addKeyPressHandler() {
+  'use strict';
+  document.body.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    if (ESC_KEY === event.keyCode) {
+      hideDetails();
+    }
+  });
+}
+
 function initializeEvents() {
   'use strict';
   var thumbnials = getThumbnails();
   thumbnials.forEach(addThumbClickHandler);
+  addKeyPressHandler();
 }
 
 initializeEvents();

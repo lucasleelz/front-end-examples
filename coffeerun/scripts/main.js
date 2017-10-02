@@ -14,5 +14,6 @@
     myTruck.createOrder.call(myTruck, data); // call 会立即执行 bind。不会立即执行。
     checkList.addRow.call(checkList,data);
   });
+  checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
   window.myTruck = myTruck;
 })(window);

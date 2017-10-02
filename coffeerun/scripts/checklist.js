@@ -1,5 +1,8 @@
 (function(window) {
   'use strict';
+
+var CHECKBOX_SELECTOR = '[data-coffee-order="checkbox"]';
+
   var App = window.App || {};
   var $ = window.jQuery;
 
@@ -12,24 +15,45 @@
     if (this.$element.length === 0) {
       throw new Error('Could not find element with selector: ' + selector);
     }
-  }
+  };
 
   CheckList.prototype.addRow = function(coffeeOrder) {
+    // 移除已有的订单。
+    this.removeRow(coffeeOrder.emailAddress);
+
     var rowElement = new Row(coffeeOrder);
     this.$element.append(rowElement.$element);
-  }
+  };
+
+  CheckList.prototype.removeRow = function(email) {
+    this.$element
+      .find('[value="' + email + '"]')
+      .closest(CHECKBOX_SELECTOR)
+      .remove();
+  };
+
+  CheckList.prototype.addClickHandler = function(fn) {
+    this.$element.on('click', 'input', function(event) {
+      var email = event.target.value;
+      this.removeRow(email);
+      fn(email);
+    }.bind(this));
+  };
 
   function Row(coffeeOrder) {
     var $div = $('<div></div>', {
       'data-coffee-order': 'checkbox',
-      'class': 'checkbox'
+      'class': 'form-check'
     });
 
-    var $label = $('<label></label>');
+    var $label = $('<label></label>', {
+      'class': 'form-check-label'
+    });
 
     var $checkbox = $('<input></input>', {
       type: 'checkbox',
-      value: coffeeOrder.emailAddress
+      value: coffeeOrder.emailAddress,
+      'class': 'form-check-input mr-2'
     });
 
     var description = coffeeOrder.size + ' ';
@@ -44,7 +68,7 @@
     $div.append($label);
 
     this.$element = $div;
-  }
+  };
 
   App.CheckList = CheckList;
   window.App = App;

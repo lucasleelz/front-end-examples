@@ -45,3 +45,15 @@ flex: auto === flex: 1 1 auto
 flex: none === flex: 0 0 auto
 ```
 
+
+## ATOM 快捷键
+切换左侧菜单。
+```
+command + \
+```
+
+新建文件或者文件夹
+```
+control + 单击 某个文件夹
+两个手指同时点击 某个文件夹
+```

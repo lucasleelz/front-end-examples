@@ -75,7 +75,6 @@ a {
   position: absolute;
   bottom: -16px;
   left: 4px;
-
   font-family: airstreamregular;
   color: white;
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
@@ -100,11 +99,12 @@ a {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
   white-space: nowrap;
   /* 声明禁止换行 */
   overflow-x: auto;
-  order: 2; /* 调整源顺序，先加载大图。 */
+  order: 2;
+  /* 调整源顺序，先加载大图。 */
 }
 
 /* 隐藏滚动条 */
@@ -117,9 +117,14 @@ a {
   display: inline-block;
   min-width: 120px;
   max-width: 120px;
+  /* 提供回退机制，有些浏览器不支持rgbda。 */
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
-  /* 提供回退机制，有些浏览器不支持rgbda。 */
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.2);
+  transition: transform 133ms
 }
 
 .thumbnail-image {
@@ -141,18 +146,17 @@ a {
     flex-direction: row;
     overflow: hidden;
   }
-
   .thumbnail-list {
     flex-direction: column;
     margin-left: 20px;
-    order: 0; /* 默认顺序，即还原源顺序 */
+    /* 默认顺序，即还原源顺序 */
+    order: 0;
+    padding: 0 35px;
   }
-
   .thumbnail-item {
     max-width: 260px;
   }
-
-  .thumbnail-item + .thumbnail-item {
+  .thumbnail-item+.thumbnail-item {
     margin-top: 20px;
   }
 }

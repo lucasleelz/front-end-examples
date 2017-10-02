@@ -20,9 +20,13 @@
   Truck.prototype.printOrders = function() {
     var customerIds = Object.keys(this.db.findAll());
     console.log('Truck # ' + this.truckId + ' has pending orders:');
+    // customerIds.forEach(function(id) {
+    //   console.log(this.db.get(id));
+    // }.bind(this));
+    // forEach 支持直接绑定this到匿名函数中。
     customerIds.forEach(function(id) {
       console.log(this.db.get(id));
-    }.bind(this));
+    }, this);
   }
 
   App.Truck = Truck;

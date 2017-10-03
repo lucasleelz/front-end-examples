@@ -17,6 +17,7 @@
     this.db.remove(customerId);
   };
 
+  // TODO: DataStore是直接返回，而RemoteDataStore是异步返回。因此这里需要待处理。
   Truck.prototype.printOrders = function() {
     var customerIds = Object.keys(this.db.findAll());
     console.log('Truck # ' + this.truckId + ' has pending orders:');

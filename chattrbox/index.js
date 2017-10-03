@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var path = require('path');
 
 var server = http.createServer(function(request, response) {
   console.log('Responding to a request');
@@ -10,8 +11,9 @@ var server = http.createServer(function(request, response) {
     fileName = url.substring(1);
   }
   console.log(fileName);
-  fs.readFile('app/index.html', function(error, data) {
-      response.end(data);
+  var filePath = path.resolve(__dirname, 'app', fileName);
+  fs.readFile(fileName, function(error, data) {
+    response.end(data);
   });
 });
 

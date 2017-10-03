@@ -12,7 +12,8 @@
   var CheckList = App.CheckList;
   var Validation = App.Valication;
   var remoteDataStore = new RemoteDataStore(SERVER_URL);
-  var myTruck = new Truck('ncc-1701', remoteDataStore);
+  var dataStore = new DataStore();
+  var myTruck = new Truck('ncc-1701', dataStore);
   var checkList = new CheckList(CHECKLIST_SELECTOR);
   var formHandler = new FormHandler(FORM_SELECTOR);
   // call 会立即执行 bind。不会立即执行。

@@ -1,0 +1,17 @@
+{
+  "name": "chattrbox",
+  "version": "1.0.0",
+  "description": "node websocket demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "websocket"
+  ],
+  "author": "lucas lee <llzqingdao2012@gmail.com> (http://lucaslz.com)",
+  "license": "ISC"
+}

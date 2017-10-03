@@ -1,18 +1,13 @@
 var http = require('http');
 var fs = require('fs');
-var path = require('path');
+var extract = require('./extract');
 
 var server = http.createServer(function(request, response) {
   console.log('Responding to a request');
   var url = request.url;
 
-  var fileName = 'index.html';
-  if (url.length > 1) {
-    fileName = url.substring(1);
-  }
-  console.log(fileName);
-  var filePath = path.resolve(__dirname, 'app', fileName);
-  fs.readFile(fileName, function(error, data) {
+  var filePath = extract(request.url);
+  fs.readFile(filePath, function(error, data) {
     response.end(data);
   });
 });

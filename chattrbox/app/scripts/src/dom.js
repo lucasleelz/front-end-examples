@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import md5 from 'crypto-js/md5';
+import moment from 'moment';
 
 const API_GRAVATOR = 'https://www.gravatar.com/avatar';
 
@@ -61,7 +62,7 @@ export class ChatList {
     $message.append($('<span>', {
       'class': 'timestamp',
       'data-time': timestamp,
-      text: (new Date(timestamp).getTime())
+      text: moment(timestamp).fromNow()
     }));
     $message.append($('<span>', {
       'class': 'message-message',
@@ -74,4 +75,14 @@ export class ChatList {
     $messageRow.get(0).scrollIntoView();
   }
 
+  init() {
+    this.timer = setInterval(() => {
+      $('[data-time]').each((index, element) => {
+        let $element = $(element);
+        let timestamp = new Date().setTime($element.attr('data-time'));
+        let ago = moment(timestamp).fromNow();
+        $element.html(ago);
+      });
+    }, 1000);
+  }
 }

@@ -38,6 +38,7 @@ export default class ChatApp {
       let message = new ChatMessage(data);
       this.chatList.drawMessage(message.serialize());
     })
+    this.chatList.init();
   }
 }
 

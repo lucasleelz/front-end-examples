@@ -11,25 +11,29 @@
   };
 
   RemoteDataStore.prototype.add = function(key, value) {
-    $.post(this.serverUrl, value, function(response) {
+    return $.post(this.serverUrl, value, function(response) {
       console.log(response);
     });
   };
 
   RemoteDataStore.prototype.findAll = function(cb) {
-    $.get(this.serverUrl, function(response) {
-      cb(response);
+    return $.get(this.serverUrl, function(response) {
+      if (cb) {
+        cb(response);
+      }
     });
   };
 
   RemoteDataStore.prototype.get = function(key, cb) {
-    $.get(this.serverUrl + '/' + key, function(response) {
+    return $.get(this.serverUrl + '/' + key, function(response) {
+      if (cb) {
         cb(response);
+      }
     });
   };
 
   RemoteDataStore.prototype.remove = function(key) {
-    $.ajax(this.serverUrl + '/' + key, {
+    return $.ajax(this.serverUrl + '/' + key, {
       type: 'DELETE'
     });
   };

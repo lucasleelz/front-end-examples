@@ -1,7 +1,7 @@
 (function(window) {
   'use strict';
 
-var CHECKBOX_SELECTOR = '[data-coffee-order="checkbox"]';
+  var CHECKBOX_SELECTOR = '[data-coffee-order="checkbox"]';
 
   var App = window.App || {};
   var $ = window.jQuery;
@@ -35,8 +35,9 @@ var CHECKBOX_SELECTOR = '[data-coffee-order="checkbox"]';
   CheckList.prototype.addClickHandler = function(fn) {
     this.$element.on('click', 'input', function(event) {
       var email = event.target.value;
-      this.removeRow(email);
-      fn(email);
+      fn(email).then(function() {
+        this.removeRow(email);
+      }.bind(this));
     }.bind(this));
   };
 

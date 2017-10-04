@@ -10,7 +10,7 @@ setController
 export default Ember.Route.extend({
   model() {
     let record1 = this.store.createRecord('sighting', {
-      location: '广州',
+      location: '',
       sightedAt: new Date('2017-10-3')
     });
     let record2 = this.store.createRecord('sighting', {

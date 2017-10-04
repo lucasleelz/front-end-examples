@@ -33,7 +33,6 @@ export default Ember.Route.extend({
       location: '中山',
       sightedAt: new Date('2013-10-3')
     });
-    console.log('Record 1 location: ' + record1.get('location'));
     return [record1, record2, record3, record4, record5, record6];
   }
 });

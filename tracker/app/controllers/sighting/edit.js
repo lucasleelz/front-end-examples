@@ -15,6 +15,13 @@ export default Ember.Controller.extend({
         this.get('sighting').rollbackAttributes();
       }
       this.transitionToRoute('sightings');
+    },
+    delete() {
+      if (window.confirm('Are you sure you want to delete this sighting?')) {
+        this.get('sighting').destroyRecord().then(() => {
+          this.transitionToRoute('sightings');
+        });
+      }
     }
   }
 });

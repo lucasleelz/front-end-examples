@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   actions: {
     create() {
       this.get('sighting').save().then(() => {
+        this.send('flash', {alertType: 'success', message: 'New Sighting.'});
         this.transitionToRoute('sightings')
       });
     },

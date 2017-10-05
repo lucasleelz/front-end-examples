@@ -8,10 +8,10 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('sightings', function() {
-    this.route('new');
+    this.route('addition');
   });
   this.route('sighting', function() {
-    this.route('edit');
+    this.route('edit', {path: 'sightings/:sighting_id/edit'});
   });
   this.route('cryptids');
   this.route('cryptid', {path: 'cryptids/:cryptid_id'});
